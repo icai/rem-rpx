@@ -1,0 +1,60 @@
+{
+  "name": "rem-rpx",
+  "displayName": "REM RPX(px)",
+  "description": "Allows easy conversion of rem to rpx and rpx to rem",
+  "version": "1.0.1",
+  "publisher": "icai",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "repository": {
+    "url": "https://github.com/icai/rem-rpx.git"
+  },
+  "homepage": "https://github.com/icai/rem-rpx/blob/master/README.md",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "configuration": {
+      "title": "REM RPX configuration",
+      "properties": {
+        "remrpx.remEqual": {
+          "type": "integer",
+          "default": 40,
+          "description": "Set default size for 1rem."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "remrpx.convert",
+        "key": "Alt+z"
+      },
+      {
+        "command": "remrpx.convertr",
+        "key": "win+z",
+        "mac": "cmd+z"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "eslint": "^3.6.0",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
+  },
+  "dependencies": {
+    "css": "^2.2.4",
+    "rework-walk": "^1.0.0"
+  }
+}
