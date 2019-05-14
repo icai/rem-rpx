@@ -1,8 +1,8 @@
 {
   "name": "rem-rpx",
-  "displayName": "REM RPX(px)",
-  "description": "Allows easy conversion of rem to rpx and rpx to rem",
-  "version": "1.0.1",
+  "displayName": "REM RPX(PX)",
+  "description": "Toggle rem, rpx and px",
+  "version": "1.0.2",
   "publisher": "icai",
   "engines": {
     "vscode": "^1.5.0"
@@ -37,7 +37,7 @@
       {
         "command": "remrpx.convertr",
         "key": "win+z",
-        "mac": "cmd+z"
+        "mac": "ctrl+z"
       }
     ]
   },

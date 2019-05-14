@@ -20,6 +20,23 @@ var useAc = function(name, action) {
   return actionmap[name][action];
 }
 
+
+const hasBlock = function(text) {
+  return text.includes('{') && text.includes('}')
+}
+
+const wrapBlock = function(text) {
+  return `.OO___OO{${text}}`
+}
+
+const filterBlock = function(isfilter, text) {
+  if(isfilter) {
+    return text.replace(/^\.OO___OO\{/, '').replace(/\}$/, '');
+  } else {
+    return text;
+  }
+}
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
@@ -31,14 +48,18 @@ function activate(context) {
       }
       const config = vscode.workspace.getConfiguration('remrpx');
       const selection = textEditor.selection;
-      const text = textEditor.document.getText(selection);
       const isPX = text.includes(item);
       const isREM = text.includes('rem');
+      let text = textEditor.document.getText(selection);
+      let hasblock = hasBlock(text);
+      if(!hasblock) {
+        text = wrapBlock(text);
+      }
       if (isPX) {
-        const newText = useAc(item, 'torem')(text, {size: config.get('remEqual')});
+        const newText = filterBlock(!hasblock, useAc(item, 'torem')(text, {size: config.get('remEqual')}));
         textEditorEdit.replace(selection, newText);
       } else if (isREM) {
-        const newText = useAc(item, 'remto')(text, {size: config.get('remEqual')});
+        const newText = filterBlock(!hasblock, useAc(item, 'remto')(text, {size: config.get('remEqual')}));
         textEditorEdit.replace(selection, newText);
       }
     });
@@ -46,8 +67,7 @@ function activate(context) {
   })
 }
 exports.activate = activate;
-
-// this method is called when your extension is deactivated
 function deactivate() {
+
 }
 exports.deactivate = deactivate;
