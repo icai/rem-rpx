@@ -1,6 +1,6 @@
 # REM-RPX
 
-Allows easy conversion of rem to rpx(px) and rpx(px) to rem.
+Toggle rem, rpx and px.
 
 ## Usage
 
