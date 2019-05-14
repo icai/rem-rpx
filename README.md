@@ -8,7 +8,7 @@ Allows easy conversion of rem to rpx(px) and rpx(px) to rem.
 
 `Alt+z` toggle px to rem
 
-`cmd+z` toggle rpx to rem
+`ctrl+z (win + z)` toggle rpx to rem
 
 
 ## Extension Settings
