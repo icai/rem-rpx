@@ -17,6 +17,7 @@
   "activationEvents": [
     "*"
   ],
+  "icon": "convert_icon.png",
   "main": "./extension",
   "contributes": {
     "configuration": {
