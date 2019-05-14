@@ -24,7 +24,7 @@
       "title": "REM RPX configuration",
       "properties": {
         "remrpx.remEqual": {
-          "type": "integer",
+          "type": "number",
           "default": 40,
           "description": "Set default size for 1rem."
         }
