@@ -26,12 +26,14 @@ const hasBlock = function(text) {
 }
 
 const wrapBlock = function(text) {
-  return `.OO___OO{${text}}`
+  return '.OO___OO{'+ text + '}'
 }
 
 const filterBlock = function(isfilter, text) {
   if(isfilter) {
-    return text.replace(/^\.OO___OO\{/, '').replace(/\}$/, '');
+    return text
+      .replace(/\.OO___OO\s*\{\n/, '')
+      .replace(/(\n)*\}(\n)*/, '');
   } else {
     return text;
   }
@@ -48,9 +50,9 @@ function activate(context) {
       }
       const config = vscode.workspace.getConfiguration('remrpx');
       const selection = textEditor.selection;
+      let text = textEditor.document.getText(selection);
       const isPX = text.includes(item);
       const isREM = text.includes('rem');
-      let text = textEditor.document.getText(selection);
       let hasblock = hasBlock(text);
       if(!hasblock) {
         text = wrapBlock(text);
