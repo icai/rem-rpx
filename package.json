@@ -1,8 +1,8 @@
 {
   "name": "rem-rpx",
-  "displayName": "REM RPX(PX)",
-  "description": "Toggle rem, rpx and px",
-  "version": "1.0.3",
+  "displayName": "Rem rpx px - Converter",
+  "description": "switch css unit rem rpx and px convert by keyboard shortcut",
+  "version": "1.0.4",
   "publisher": "icai",
   "engines": {
     "vscode": "^1.5.0"
@@ -12,7 +12,8 @@
   },
   "homepage": "https://github.com/icai/rem-rpx/blob/master/README.md",
   "categories": [
-    "Other"
+    "Other",
+    "Extension Packs"
   ],
   "activationEvents": [
     "*"
@@ -47,15 +48,12 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^2.0.3",
-    "vscode": "^1.0.0",
-    "mocha": "^2.3.3",
-    "eslint": "^3.6.0",
-    "@types/node": "^6.0.40",
-    "@types/mocha": "^2.2.32"
+    "typescript": "^3.8.3",
+    "vscode": "^1.1.36",
+    "mocha": "^7.1.1",
+    "eslint": "^6.8.0",
+    "@types/node": "^13.11.1",
+    "@types/mocha": "^7.0.2"
   },
-  "dependencies": {
-    "css": "^2.2.4",
-    "rework-walk": "^1.0.0"
-  }
+  "dependencies": {}
 }

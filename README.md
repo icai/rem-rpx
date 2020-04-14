@@ -1,14 +1,24 @@
 # REM-RPX
 
-Toggle rem, rpx and px.
+switch css unit rem rpx and px convert by keyboard shortcut.
 
-## Usage
+## Keybinding
 
-**keybinding**
 
-`Alt+z` toggle px to rem
+ ### Mac 
 
-`ctrl+z (win + z)` toggle rpx to rem
+` ⌥ + z` (option + z) toggle px to rem
+
+` ^ + z` (control + z) toggle rpx to rem
+
+
+
+### Windows
+
+`alt+z` toggle px to rem
+
+`win + z` toggle rpx to rem
+
 
 
 ## Extension Settings

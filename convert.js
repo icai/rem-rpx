@@ -1,6 +1,3 @@
-var css = require("css");
-var walk = require("rework-walk");
-
 function remto(value, size, unit = 'px') {
   // From https://github.com/nfroidure/rework-rem2px/blob/master/src/index.js
   if (/([0-9]+)\.?([0-9]*)\s*rem/.test(value)) {
@@ -18,15 +15,10 @@ function torem(value, size) {
 
 var totarget = function(styles, options, fn, unit) {
   options = options || {};
-  var ast = css.parse(styles);
-  walk(ast.stylesheet, function(rule) {
-    if (rule.declarations) {
-      rule.declarations.forEach(function(decl) {
-        decl.value = fn(decl.value, options.size || 16, unit);
-      });
-    }
-  });
-  return css.stringify(ast, { compress: options.compress });
+  // use Regexp, no format the code
+  return styles.replace(/(([0-9]+)\.?([0-9]*))\s*(rem|r?px)/g, function(all) {
+    return fn(all, options.size || 16, unit);
+  })
 }
 
 module.exports = {
